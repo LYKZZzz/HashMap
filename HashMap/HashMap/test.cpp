@@ -6,7 +6,7 @@
 #include<map>
 #include<vector>
 #include<string>
-#define SIZE 100000
+#define SIZE 10000
 #define TEST 10000
 using namespace std;
 size_t Hasher1(const int& x) {
@@ -55,6 +55,10 @@ int main() {
 					cerr << "but is: " << testmap[TestArray[i]] << endl;
 				}
 			}
+			int temp = testmap[1];
+			testmap.replace(1, 9999999);
+			cout << testmap[1] << endl;
+			testmap.replace(1, temp);
 			T = clock();
 			for (int i = 0; i < TEST; i++) {
 				testmap[rand() % SIZE];

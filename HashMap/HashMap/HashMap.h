@@ -116,7 +116,7 @@ public:
 	bool isEmpty() { return Size == 0; }
 	bool containsKey(_Key& key);
 	void clear();
-	void replace(_Key& key, _Value& now);
+	void replace(const _Key& key, const _Value& now);
 	Pair_type& insert(const _Key& key, const _Value& val);
 	Pair_type& insert(const Pair_type& node);
 	void erase(_Key& key);
@@ -146,7 +146,7 @@ inline void Hash_Map<_Key, _Value, _Hash, _Equal>::clear()
 }
 
 template<class _Key, class _Value, class _Hash, class _Equal>
-inline void Hash_Map<_Key, _Value, _Hash, _Equal>::replace(_Key & key, _Value & now)
+inline void Hash_Map<_Key, _Value, _Hash, _Equal>::replace(const _Key & key,const  _Value & now)
 {
 	this->operator[](key) = now;
 }
