@@ -155,10 +155,15 @@ public:
 	void clear() { AVLnode<T>::clearTree(Root); Root = nullptr; }
 	AVLnode<T>* search(const KeyType& key);
 	AVLnode<T>* retRoot() { return Root; }
+	//isExist == true -> There already have a node with same Key
 	AVLnode<T>* insert(const T& Node, size_t Hash, bool& isExist);
+	//insert a node to tree
 	AVLnode<T>* insNode(AVLnode<T>* Node);
-	void travesal(AVLnode<T>* Node);
+	
+	void TEST_travesal(AVLnode<T>* Node);
 	bool delNode(const KeyType& Key);
+	//Delete == false -> won't delete ptr to node
+	//used for move node to another tree
 	bool delNode(AVLnode<T>*& Todel, bool Delete);
 };
 

@@ -30,8 +30,11 @@ private:
 	size_t Size = 0;
 	keyHash h;
 	struct Bucket {
+		//can implement by skiplist...
 		Tree tree;
 		size_t itemnum = 0;
+		//can use linked list to accelerate traverse
+		//but may slow down the insert() operation
 		//int nextIndex = -1;
 		//int preIndex = -1;
 		Bucket(_Equal eq) : tree(eq) {}
@@ -116,12 +119,15 @@ public:
 	bool isEmpty() { return Size == 0; }
 	bool containsKey(_Key& key);
 	void clear();
+	// update the <key, old> -> <key, now>
+	// will insert a new node if there isn't exist node with 'key'
 	void replace(const _Key& key, const _Value& now);
 	Pair_type& insert(const _Key& key, const _Value& val);
 	Pair_type& insert(const Pair_type& node);
 	void erase(_Key& key);
 	_Value& operator[](const _Key& key);
 private:
+	//index: index of hashtable
 	Pair_type & insert(size_t index, const _Key& key, const _Value& val, size_t Hash);
 	Pair_type& insert(size_t index, const Pair_type& node, size_t Hash);
 	Pair_type& search(const _Key& key, const size_t hash);
