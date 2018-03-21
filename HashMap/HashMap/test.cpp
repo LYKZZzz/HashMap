@@ -63,17 +63,17 @@ int main() {
 			for (int i = 0; i < TEST; i++) {
 				testmap[rand() % SIZE];
 			}
-			cout << "HashMap: " << clock() - T << endl;
+			cout << "HashMap search time: " << clock() - T << endl;
 			T = clock();
 			for (int i = 0; i < TEST; i++) {
 				Map[rand() % SIZE];
 			}
-			cout << "unordered_map: " << clock() - T << endl;
-			cout << "Map bucket number: " << Map.bucket_count() << endl;
-			cout << "My map: " << testmap.bucket() << endl;
+			cout << "unordered_map search time: " << clock() - T << endl;
+			cout << "unordered_map bucket number: " << Map.bucket_count() << endl;
+			cout << "HashMap bucket number: " << testmap.bucket() << endl;
 		}
 	}
 
-	system("pause");
+	//system("pause");
 	return 0;
 }
